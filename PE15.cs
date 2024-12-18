@@ -20,7 +20,8 @@ namespace EulerProject
             Denomfact*=Denomfact;
 
             Console.WriteLine("result = " + fact/Denomfact);
-
         }
     }
 }
+
+// o/p : result = 137846528820
