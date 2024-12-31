@@ -4,38 +4,35 @@ namespace EulerProject
     {
         public static void Solve()
         {
-            //Program to rotate right shift the array n number of times without spilitng the array
-            int rotationNumber;
-            Console.Write("Enter the number of rotation: ");
-            string str =  Console.ReadLine();
-            rotationNumber = int.Parse(str); 
-
-            int[] arr = {1,2,3,4,5,6,7};
-            int len = arr.Length;
-            if(rotationNumber<len)
+            // Reverse words in string at there location
+            string str = "Test Automation";
+            string[] arr = str.Split(" ");
+            Console.Write("result = ");
+            for(int i=0;i<arr.Length;i++)
             {
-                int pos = len-rotationNumber;
-                for(int i=0;i<rotationNumber;i++)
+                string temp = arr[i];
+                char[] tempArray = temp.ToCharArray();
+                int k = temp.Length-1, j=0;
+                while(true)
                 {
-                    (arr[i], arr[pos]) = (arr[pos], arr[i]);
-                    pos++;
+                    if(j>=k)
+                    {
+                        break;    
+                    }
+                    else{
+                        char c = tempArray[j];
+                        tempArray[j] = temp[k];
+                        tempArray[k] = c;
+                        j++;k--;
+                    }
                 }
-                int temp = arr[rotationNumber];
-                int p = 1;
-                for(int i=rotationNumber;i<len-1;i++)
+                for(int p=0;p<tempArray.Length;p++)
                 {
-                    arr[i] = arr[rotationNumber+p];
-                    p++;
+                    Console.Write(tempArray[p]);
                 }
-                arr[len-1]=temp;
-                Console.Write("result = ");
-                for(int i=0;i<len;i++)
-                {
-                    Console.Write(arr[i]+" ");
-                }
+                Console.Write(" ");
             }
         }
     }
 }
-
-//o/p: result = 5 6 7 1 2 3 4
+// o/p: result = tseT noitamotuA
